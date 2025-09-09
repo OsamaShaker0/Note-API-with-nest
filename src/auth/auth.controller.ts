@@ -11,7 +11,7 @@ import { RegisetrDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 import { VerifyEmailDto } from './dto/verifyEmail.dto';
 import { ForgetPasswordDto } from './dto/forgetPassword.dto';
-import { ResetPasswordDto } from './dto/resetPassword';
+import { ResetPasswordDto } from './dto/resetPassword.dto';
 
 @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
 @Controller('auth')

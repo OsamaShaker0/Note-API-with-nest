@@ -19,7 +19,7 @@ import { VerifyEmailDto } from './dto/verifyEmail.dto';
 import { Utils } from '../utils/UtilsClass';
 import { why } from 'src/utils/whyEnum';
 import { ForgetPasswordDto } from './dto/forgetPassword.dto';
-import { ResetPasswordDto } from './dto/resetPassword';
+import { ResetPasswordDto } from './dto/resetPassword.dto';
 @Injectable()
 export class AuthService {
   constructor(
