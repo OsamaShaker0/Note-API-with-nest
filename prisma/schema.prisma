@@ -21,8 +21,9 @@ model User{
   password                  String   
   verifyRegisterToken       String?
   isVerified                Boolean  @default(false)
-  verifyOldEmailtoken       String?
-  verifyNewEmailtoken       String?
+  verifyOldEmailToken       String?
+  verifyNewEmailToken       String?
+  newEmail                  String?
   isEamilChangeVerified     Boolean  @default(false)
   verifyForgetPasswordToken String?
   Note                      Note[]

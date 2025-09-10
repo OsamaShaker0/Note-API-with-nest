@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
@@ -21,12 +22,19 @@ export class Utils {
   async comparePassword(inputPass, dbPass) {
     return await bcrypt.compare(inputPass, dbPass);
   }
-  sendEmail(email: string, subject: string, token: string, why: string) {
+  async sendEmail(email: string, subject: string, token: string, why: string) {
     let htmlContent = '';
     if (why === 'verify-email') {
       htmlContent = `<p>Click <a href="${process.env.APP_URL}/auth/verify-email?token=${token}">here</a> to verify your email.</p>`;
     } else if (why === 'reset-password') {
       htmlContent = `<p>Click <a href="http://localhost:3000/auth/reset-password?token=${token}">here</a> to reset your password.</p>`;
+    } else if (why === 'verify-change-email') {
+      htmlContent = `
+  <p>Use the following verification code to confirm your email change:</p>
+  <h2 style="color:#4CAF50;">${token}</h2>
+`;
+    } else if (why === 'change-password') {
+      htmlContent = `<p>$Your Password Has Changed Recently</p>`;
     } else {
       htmlContent = `<p>${subject}</p>`;
     }
