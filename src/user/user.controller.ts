@@ -7,6 +7,8 @@ import {
   Get,
   Put,
   Delete,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { AskForChangeDto } from './dto/AskForChange.dto';
@@ -15,6 +17,7 @@ import { ChangeEmailDto } from './dto/ChangeEmail.dto';
 import { ChangePasswordDto } from './dto/ChangePassword.dto';
 
 @UseGuards(AuthenticationGuard)
+@UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
 @Controller('users')
 export class UserController {
   constructor(private userService: UserService) {}
