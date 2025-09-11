@@ -45,10 +45,15 @@ npm install
 Create a .env file:
 
 DATABASE_URL="mongodb://user:password@localhost:5432/notesdb"
+
 JWT_SECRET="your-secret"
+
 JWT_EXPIRE="1d"
+
 EMAIL_USER="your@email.com"
+
 EMAIL_PASS="yourpassword"
+
 BASE_URL="http://localhost:3000"
 
 3. Run database migrations
