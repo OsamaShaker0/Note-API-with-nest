@@ -1,98 +1,113 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+📝 NestJS Notes API
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+A simple Notes API built with NestJS and Prisma.
+This project was my first step into NestJS after working with Express, and I learned a lot about structured backend development, authentication, and clean architecture.
 
-## Description
+🚀 Features
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+🔑 Authentication & Authorization with JWT
 
-## Project setup
+📧 Email verification on signup
 
-```bash
-$ npm install
-```
+🔄 Change email & password with token-based security
 
-## Compile and run the project
+📝 Notes CRUD (Create, Read, Update, Delete)
 
-```bash
-# development
-$ npm run start
+🛡️ Validation & Guards (DTOs + custom guards)
 
-# watch mode
-$ npm run start:dev
+🗑️ Delete user & cascade delete notes
 
-# production mode
-$ npm run start:prod
-```
+📖 Swagger API Docs (/api/docs)
 
-## Run tests
+🗄️ Prisma ORM with MongoDb
 
-```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
+🛠️ Tech Stack
 
-# test coverage
-$ npm run test:cov
-```
+NestJS — backend framework
 
-## Deployment
+Prisma — database ORM
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+MongoDb — database
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+JWT — authentication
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+Swagger — API documentation
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
-## Resources
+1. Install dependencies
 
-Check out a few resources that may come in handy when working with NestJS:
+npm install
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+2. Configure environment
 
-## Support
+Create a .env file:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+DATABASE_URL="mongodb://user:password@localhost:5432/notesdb"
+JWT_SECRET="your-secret"
+JWT_EXPIRE="1d"
+EMAIL_USER="your@email.com"
+EMAIL_PASS="yourpassword"
+BASE_URL="http://localhost:3000"
 
-## Stay in touch
+3. Run database migrations
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+npx prisma migrate dev
+npx prisma db push
 
-## License
+4. Start the server
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+npm run start:dev
+
+API runs at 👉 http://localhost:3000
+
+Swagger docs 👉 http://localhost:3000/api/docs
+
+📂 API Endpoints
+Auth
+
+    POST /auth/register — register new user
+
+    POST /auth/login — login & get token
+
+    POST /auth/verify-email?token=... — verify email
+
+    POST /auth/forget-password — request password reset
+
+    POST /auth/reset-password?token=... — reset password
+
+Users
+
+    GET /users/get-me — get profile
+
+    POST /users/change-email/request — request email change
+
+    POST /users/change-email — confirm email change
+
+    PUT /users/change-password — change password
+
+    DELETE /users/delete-user — delete account
+
+Notes
+
+    GET /notes — list notes
+
+    GET /notes/:id — get single note
+
+    POST /notes — create note
+
+    PUT /notes/update-note/:id — update note
+
+    DELETE /notes/delete-note/:id — delete note
+
+📖 Learning Notes
+
+    First project using NestJS after Express
+
+    Learned about Modules, Guards, and Pipes , Providers , Controllers 
+
+    Swagger integration made testing easier
+
+    Prisma made DB handling super clean
+
